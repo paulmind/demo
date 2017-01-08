@@ -47,6 +47,7 @@ class Education extends Model {
 			WHERE tbl.id = $lastId
 		";
 		$res = $this->all(null, $where);
+		$this->log($res);
 		return $res;
 	}
 
@@ -54,5 +55,9 @@ class Education extends Model {
 		$res = $this->create($params, $update=true, $id);
 		return $res;
 	}
+
+  function log($data) {
+    //$data = $this->all([]);
+  }
 
 }

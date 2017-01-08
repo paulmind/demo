@@ -124,6 +124,7 @@ class User extends Model {
 				WHERE usr.id = $lastId
 			";
 			$res = $this->all(null, $where);
+      $this->log($res);
 			return $res;
 		} catch (Exception $e) {
 			$this->dbh->rollBack();
@@ -133,7 +134,12 @@ class User extends Model {
 
 	function update($id, $params) {
 		$res = $this->create($params, $update=true, $id);
+		$this->log($res);
 		return $res;
 	}
+
+  function log($data) {
+    //$data = $this->all([]);
+  }
 
 }
